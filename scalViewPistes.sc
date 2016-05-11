@@ -1,6 +1,6 @@
-ScaleViewPiste : ScaledView {
+ScaledViewPistes : ScaledView {
 
-	var <nbPistes=2;
+	var <nbPistes=4;
 	*new{ arg p, b=(150@150).asRect;
 		^super.new(p, b).initSVP
 	}
@@ -22,6 +22,7 @@ a=ScaleViewPiste(nil, 200@200)
 				Rect(x, y, self.defSize.x, self.defSize.y))};
 			self.refresh
 		}.front;
+
 a.nbPistes=5
-g
+
 */

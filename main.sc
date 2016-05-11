@@ -2,6 +2,7 @@ ScaledView : UserView{
 
 	var <>roundationF;
 	var <>defSize, <>spec;
+	
 	*new{ arg p, b, defSize=20@20;
 		^super.new(p, b).defSize_(defSize)
 	}
@@ -19,7 +20,11 @@ ScaledView : UserView{
 	}
 	mouseMove{ arg x, y, mod;
 		^mouseMoveAction
-		.value(*([this]++this.roundation(x, y)++mod))
+		.value(*([this]++this.roundation(x, y)++mod++[x, y]))
+	}
+	mouseDown{ arg x, y, mod, but, nbCl;
+		^mouseDownAction
+		.value(*([this]++this.roundation(x, y)++[mod, but, nbCl]++[x, y]))
 	}
 	canReceiveDrag { arg x, y;
 		if( canReceiveDragHandler.notNil )
